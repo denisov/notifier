@@ -1,0 +1,8 @@
+telegram_bot:
+    token: xx
+    chat_ids:
+        #- 111111111 # fake
+
+credentials:
+    login: 123123
+    password: pass

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# в /etc/cron.daily/ должны быть файлы тоько из букв и тире (.) нельзя
+/home/andrey/kengu/kengu -config=/home/andrey/kengu/config.yml
