@@ -27,6 +27,7 @@ func main() {
 
 	telegramResponses, err := sendTelegramNotification(
 		"Баланс на обеденной карте: "+balance,
+		conf.TelegramBot.Proxy,
 		conf.TelegramBot.Token,
 		conf.TelegramBot.ChatIds,
 	)

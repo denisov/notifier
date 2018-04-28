@@ -1,4 +1,5 @@
 telegram_bot:
+    proxy: socks5://192.168.0.1:1234
     token: xx
     chat_ids:
         #- 111111111 # fake
@@ -6,3 +7,5 @@ telegram_bot:
 credentials:
     login: 123123
     password: pass
+
+

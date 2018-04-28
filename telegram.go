@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 )
 
 type telegramResponse struct {
@@ -15,10 +16,18 @@ type telegramResponse struct {
 	ChatID      string
 }
 
-func sendTelegramNotification(text, token string, chatIds []string) ([]telegramResponse, error) {
+func sendTelegramNotification(text, proxy string, token string, chatIds []string) ([]telegramResponse, error) {
 
-	client := http.Client{}
 	responses := []telegramResponse{}
+
+	proxyURL, err := url.Parse(proxy)
+	if err != nil {
+		return responses, fmt.Errorf("не могу распарсить url proxy: %s", err)
+	}
+	client := &http.Client{Transport: &http.Transport{
+		Proxy: http.ProxyURL(proxyURL),
+	}}
+
 	url := fmt.Sprintf("https://api.telegram.org/bot%s/sendMessage", token)
 
 	for _, chatID := range chatIds {
