@@ -1,11 +1,20 @@
-## Установка
+## Задать secret
 
 ```
-cd /home/andrey/go/src/github.com/denisov/kengu
-go build
-mkdir ~/kengu
-cp kengu ~/kengu
-cp config.yml ~/kengu
-sudo cp kengu-sh /etc/cron.daily/
+now secret add telegram_bot_token xxxxx
+now secret add kengu_login xxxxx
+now secret add kengu_password xxxxx
 ```
 
+## Deoloy
+    ./deploy.sh
+
+
+### Удалить старые версии
+```
+# удалить совсем всё
+now rm -y kengu
+
+# удалить то что без алиасов (не-боевые деплойменты)
+now rm kengu --safe --yes
+```
