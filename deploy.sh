@@ -1,3 +1,5 @@
 set -x
 
-now --public && now alias
+go test ./... && \
+    now --public && \
+    now alias

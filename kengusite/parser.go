@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/http/cookiejar"
 	"net/url"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/pkg/errors"
@@ -64,5 +65,9 @@ func (p Parser) GetData() (string, error) {
 		return "", errors.New("не могу найти '.balance' в html коде")
 	}
 
-	return balanceSelection.First().Text(), nil
+	balance := balanceSelection.First().Text()
+	// заменяем неразрывный пробел на нормальный
+	balance = strings.Replace(balance, "\u00a0", " ", -1)
+
+	return strings.Replace(balanceSelection.First().Text(), "\u00a0", " ", -1), nil
 }

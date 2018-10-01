@@ -1,4 +1,8 @@
+*/testdata/
+*/*_test.go
 .git
 deploy.sh
 kengu-ws.code-workspace
 README.md
+TODO.md
+Dockerfile.build-context

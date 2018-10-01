@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>КенгуДетям.ру - Личный кабинет - Денисова Мария</title>
+    <meta content="https://billing.kengudetyam.ru/cabinet/" id="absolutePath" />
+
+    <link href="/cabinet/Content/checkbox.css" rel="stylesheet" type="text/css" />
+    <link href="/cabinet/Content/select.css" rel="stylesheet" type="text/css" />
+    <link href="/cabinet/Content/hint.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/cabinet/Content/jquery-ui.css" />
+    <link href="/cabinet/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    
+    
+    <script src="/cabinet/Scripts/jquery-1.10.0.min.js"></script>
+
+    <script src="/cabinet/Scripts/jquery.formstyler.min.js" type="text/javascript"></script>
+    <script src="/cabinet/Scripts/script.js" type="text/javascript"></script>
+    <script src="/cabinet/Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+    <script src="/cabinet/Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script>
+    <script src="/cabinet/Scripts/jquery.ui.datepicker-ru.js" type="text/javascript"></script>
+    <script src="/cabinet/Scripts/sammy-0.7.4.min.js" type="text/javascript"></script>
+    <script src="/cabinet/Scripts/jquery-ui.js"></script>
+
+    <script src="/cabinet/Scripts/knockout-3.2.0.js"></script>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/cabinet/DXR.axd?r=1_23,1_28,1_31,1_3,1_9,1_10,1_8,1_14,1_13,1_11,4_7,4_8,4_1,4_2,4_0,5_1,5_0,4_6,7_1,7_2,7_0,10_4,24_358,24_363,24_359,9_11,9_13,9_17,9_2,9_1,9_0,9_12,9_3,8_1,8_2,8_0-Zjlxg" />
+    <script id="dxis_1637819424" src="/cabinet/DXR.axd?r=1_242,1_164,1_138,1_141,1_135,1_218,1_231,1_225,1_228,1_137,17_41,17_3,1_224,1_142,17_8,1_236,1_146,17_10,1_226,1_148,1_147,17_11,1_162,1_170,1_240,1_187,1_193,1_241,1_175,17_12,1_235,1_234,1_217,17_40,1_143,1_176,1_229,1_227,1_149,1_203,1_198,1_196,1_197,1_202,1_200,1_199,1_195,1_194,1_192,1_191,1_201,1_190,1_189,17_15,17_17,1_210,1_211,17_19,1_212,1_213,17_20,17_21,1_177,17_14,1_215,17_24,17_28,1_219,17_25,1_232,17_27,1_230,1_233,17_32,1_237,17_36,17_39,4_107,1_145,5_5,5_4,4_116,4_101,4_102,4_104,4_105,4_103,4_94,4_95,4_96,4_98,4_99,4_93,4_100,4_114,4_115,4_62,4_126,4_110,4_125,4_121,4_128,4_124,4_112,4_28,4_37,4_31,4_85,4_61,4_40,4_60,4_32,4_29,4_33,4_34,4_35,4_36,4_39,4_41,4_43,4_45,4_30,4_46,4_47,4_48,4_49,4_51,4_56,4_57,4_58,4_59,4_63,4_68,4_69,4_70,4_71,4_72,4_74,4_75,4_76,4_77,4_82,4_64,4_65,4_66,4_67,4_83,4_84,4_73,4_44,4_50,4_38,4_53,4_54,4_52,4_42,4_80,4_79,4_81,4_78,4_86,4_87,4_88,4_89,4_55,4_27,4_111,4_90,4_109,4_129,4_132,4_133,4_134,4_130,4_120,4_108,4_113,4_106,17_18,4_26,4_117,1_161,1_159,1_165,4_118,4_119,1_156,1_158,4_122,1_151,1_154,17_1,1_188,17_16,7_50,7_53,7_48,7_52,17_26,1_166,1_150,17_0,1_152,17_2,1_153,17_4,1_155,1_172,17_7,1_160,17_9,1_214,1_168,1_169,17_22,17_23,1_167,1_171,17_37,1_173,10_10,10_9,10_11,10_12,10_13,17_6,9_48,9_40,24_378,24_388,9_41,17_30,9_49,9_50,17_43,9_45,9_42,9_27,17_29,9_44,9_37,9_47,9_46,9_43,8_13,8_40,8_35,1_140,8_24,8_21,8_23,8_25,8_22,8_32,8_39,8_42,8_10,8_26,8_33,8_30,8_12,8_27,8_9,8_41,8_16,8_17,8_15,8_20,8_19,8_28,17_33,8_36,8_11,8_38,8_37,8_31,8_34,8_29,8_14-Zjlxg" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="master">
+        <div class="header">
+            
+<div class="header">
+    <div style="float: left">
+        <a id="logo" href="https://billing.kengudetyam.ru/cabinet/"></a>
+    </div>
+    <div class="login">
+            <div class="margin-left-links">
+                <a class="ajax-link upper" href="#public-offer">ОФЕРТА</a>
+                <a class="ajax-link upper" href="#notifications-settings">ТАРИФЫ</a>
+                <a class="ajax-link upper" href="#account-settings">НАСТРОЙКИ</a>
+                
+                <a class="upper highlight" href="/cabinet/Account/LogOff">ВЫЙТИ</a>
+            </div>
+    </div>
+    <div style="clear: both">
+    </div>
+</div>
+        </div>
+
+        <div class="main">
+                <div style="opacity: 1; margin-bottom: 10px; border-bottom: 1px solid #B9C4DA; border-top: 1px solid #B9C4DA; margin-left: 3px; background: #f5f5f5; padding: 5px 10px;" id="temp-msg">
+                    <button title="Закрыть" style="border: none; background: none; height: 16px; width: 16px; top: 10px; right: 0; float: right; padding: 0"
+                            onclick="$('#temp-msg').animate({ height: 0, opacity: 0 }, 400, function() { $('#temp-msg').hide(); })">
+                        <span style="margin-right: -8px; cursor: pointer; display: block; width: 16px; height: 16px; background-repeat: no-repeat; background-image: url(https://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png); background-position: -97px -129px;"></span>
+                    </button>
+                    <h4>Уважаемые пользователи!</h4>
+                    <p>
+                        <b style="font-weight: bold">Внимание! с 1 февраля 2018 года, стоимость архивного тарифа "SMS+"  составляет 195 рублей в месяц.</b>
+                    </p>
+                </div>
+
+
+            
+
+<script type="text/javascript">
+    var downloadFile = function downloadURL(url) {
+        var hiddenIFrameId = 'hiddenDownloader',
+            iframe = document.getElementById(hiddenIFrameId);
+        if (!iframe) {
+            iframe = document.createElement('iframe');
+            iframe.id = hiddenIFrameId;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+        }
+        iframe.src = url;
+    };
+
+    var onAccountChanged = function (s) {
+        var selIndex = s.selectedIndex;
+        var selValue = s.options[selIndex].value;
+        $.ajax({
+            url: '/cabinet/Home/GetAccountInfoPartial',
+            data: { accountId: selValue },
+            success: function (response) {
+                $("#accountInfoContainer").html(response);
+                $("#gridContainer").empty();
+                onTransactionGridLoad();
+            }
+        });
+    };
+
+    var onExportToExcelClick = function () {
+        downloadFile('/cabinet/Home/ExportTo' + getTransactionsQueryString());
+    };
+
+    var onExportSaleTransactionsToExcelClick = function () {
+        downloadFile('/cabinet/DiningRoom/ExportTo' + getSaleTransactionsQueryString());
+    };
+
+    var onExportAccessEventsToExcelClick = function () {
+        downloadFile('/cabinet/AccessEvents/ExportTo' + getAccessEventsQueryString());
+    };
+
+    var onSaleTransactionsGridLoad = function () {
+        var jsonData = {};
+        jsonData["dateFrom"] = ($("#PeriodFrom")[0].value ? $("#PeriodFrom")[0].value : 'null');
+        jsonData["dateTo"] = ($("#PeriodTo")[0].value ? $("#PeriodTo")[0].value : 'null');
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: '/cabinet/DiningRoom/GetSaleTransactionsGridPartial',
+            error: function () {
+            },
+            success: function (response) {
+                $("#gridContainer").empty();
+                $("#gridContainer").html(response);
+            }
+        });
+    };
+
+    var onAccessEventsGridLoad = function () {
+        var jsonData = {};
+        jsonData["dateFrom"] = ($("#PeriodFrom")[0].value ? $("#PeriodFrom")[0].value : 'null');
+        jsonData["dateTo"] = ($("#PeriodTo")[0].value ? $("#PeriodTo")[0].value : 'null');
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: '/cabinet/AccessEvents/GetAccessEventsGridPartial',
+            error: function () {
+            },
+            success: function (response) {
+                $("#gridContainer").empty();
+                $("#gridContainer").html(response);
+            }
+        });
+    };
+
+    var onTransactionGridLoad = function () {
+        if ($("#PeriodFrom").length == 0) return;
+
+        var jsonData = {};
+        var selIndex = window.AccountsList.selectedIndex;
+        var selValue = window.AccountsList.options[selIndex].value;
+        jsonData["accountId"] = selValue;
+        jsonData["dateFrom"] = ($("#PeriodFrom")[0].value ? $("#PeriodFrom")[0].value : 'null');
+        jsonData["dateTo"] = ($("#PeriodTo")[0].value ? $("#PeriodTo")[0].value : 'null');
+        jsonData["getService"] = $("#GetServiceCheckBox")[0].checked;
+        jsonData["getSale"] = $("#GetSaleCheckBox")[0].checked;
+        jsonData["getDeposit"] = $("#GetDepositCheckBox")[0].checked;
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: '/cabinet/Home/GetTransactionsGridPartial',
+            error: function () {
+            },
+            success: function (response) {
+                $("#gridContainer").empty();
+                $("#gridContainer").html(response);
+            }
+        });
+    };
+
+    var onChangeTimeZoneButtonClick = function () {
+
+        $.ajax({
+            type: "POST",
+            url: '/cabinet/Settings/ChangeTimeZone',
+            data: $("#timezone-settings-form").serialize(),
+            error: function (xhr) {
+                $("#change-timezone-message")
+                    .removeClass('pa-success-message')
+                    .addClass('pa-error-message')
+                    .html($.parseJSON(xhr.responseText).message);
+            },
+            success: function (response) {
+                $("#change-timezone-message")
+                    .removeClass('pa-error-message')
+                    .addClass('pa-success-message')
+                    .html("Часовой пояс успешно изменён");
+            }
+        });
+    };
+
+    var onChangePasswordButtonClick = function (s, e) {
+        $.ajax({
+            type: "POST",
+            url: '/cabinet/Settings/ChangePassword',
+            data: $("#change-password-form").serialize(),
+            error: function (xhr) {
+            },
+            success: function (response) {
+                if (!response.IsSuccess) {
+                    var errors = response.Errors;
+
+                    if (errors.OldPasswordValidationMessage) {
+                        $("#old-password-hint").attr('data-hint', errors.OldPasswordValidationMessage);
+                        $("#old-password-hint").addClass("hint--right");
+                        $("#old-password-hint").addClass("hint--always");
+                    }
+                    else {
+                        $("#old-password-hint").removeAttr('data-hint');
+                    }
+
+                    if (errors.NewPasswordValidationMessage) {
+                        $("#new-password-hint").attr('data-hint', errors.NewPasswordValidationMessage);
+                        $("#new-password-hint").addClass("hint--left");
+                        $("#new-password-hint").addClass("hint--always");
+                    }
+                    else {
+                        $("#new-password-hint").removeAttr('data-hint');
+                    }
+
+                    if (errors.ConfirmPasswordValidationMessage) {
+                        $("#new-password-confirm-hint").attr('data-hint', errors.ConfirmPasswordValidationMessage);
+                        $("#new-password-confirm-hint").addClass("hint--right");
+                        $("#new-password-confirm-hint").addClass("hint--always");
+                    }
+                    else {
+                        $("#new-password-confirm-hint").removeAttr('data-hint');
+                    }
+
+                }
+                else {
+                    $("#change-password-message")
+                        .removeClass('pa-error-message')
+                        .addClass('pa-success-message')
+                        .html("Пароль успешно изменен");
+
+                    $("#old-password-hint").removeAttr('data-hint');
+                    $("#new-password-hint").removeAttr('data-hint');
+                    $("#new-password-confirm-hint").removeAttr('data-hint');
+                }
+            }
+        });
+    };
+
+    var onChangeEmailButtonClick = function (s, e) {
+        $.ajax({
+            type: "POST",
+            url: '/cabinet/Settings/ChangeEmail',
+            data: $("#change-email-form").serialize(),
+            error: function (xhr) {
+                //todo: show MessageBox
+            },
+            success: function (response) {
+                if (!response.IsSuccess) {
+                    var errors = response.Errors;
+                    if (errors.NewEmailValidationMessage) {
+                        $("#new-email-hint").attr('data-hint', errors.NewEmailValidationMessage);
+                        $("#new-email-hint").addClass("hint--right");
+                        $("#new-email-hint").addClass("hint--always");
+                    }
+                    else {
+                        $("#new-email-hint").removeAttr('data-hint');
+                    }
+                }
+                else {
+                    $("#change-email-message")
+                        .removeClass('pa-error-message')
+                        .addClass('pa-success-message')
+                        .html("Электронная почта успешно изменена");
+
+                    $("#new-email-hint").removeAttr('data-hint');
+
+                    if (response && response.NewEmail)
+                        $("#current-email").html(response.NewEmail);
+                }
+            }
+        });
+    };
+
+    var onChangePhoneButtonClick = function (s, e) {
+        $.ajax({
+            type: "POST",
+            url: '/cabinet/Settings/ChangePhone',
+            data: { "NewPhone": $.trim($("#new-phone").val()) },
+            error: function (xhr) {
+                //todo: show MessageBox
+            },
+            success: function (response) {
+
+                if (!response.IsSuccess) {
+                    var errors = response.Errors;
+                    if (errors.NewPhoneValidationMessage) {
+                        $("#new-phone-hint").attr('data-hint', errors.NewPhoneValidationMessage);
+                        $("#new-phone-hint").addClass("hint--right");
+                        $("#new-phone-hint").addClass("hint--always");
+                    }
+                    else {
+                        $("#new-phone-hint").removeAttr('data-hint');
+                    }
+
+                }
+                else {
+                    $("#change-phone-message")
+                        .removeClass('pa-error-message')
+                        .addClass('pa-success-message')
+                        .html("Номер телефона успешно изменен");
+
+                    $("#new-phone-hint").removeAttr('data-hint');
+
+                    if (response && response.NewPhone)
+                        $("#current-phone").html(response.NewPhone);
+                }
+            }
+        });
+    };
+
+    var OnMenuItemSelect = function (i) {
+        var pview = '';
+        switch (i) {
+            case -1: pview = '/cabinet/Home/GetMainPartial'; break;
+            case 0: pview = '/cabinet/Home/GetAccountListPartial'; break;
+            case 1: pview = '/cabinet/DiningRoom/GetDiningRoomPartial'; break;
+            case 2: pview = '/cabinet/AccessEvents/GetAccessEventsPartial'; break;
+            case 3: pview = '/cabinet/Payments/GetMakePaymentPartial'; break;
+            default: break;
+        };
+        if (pview != "")
+            $.ajax({
+                type: "POST",
+                url: pview,
+                error: function () {
+                },
+                success: function (response) {
+                    $("#content-panel").empty();
+                    $("#content-panel").html(response);
+                }
+            });
+    };
+
+    var onPaymentMethodSelect = function (i) {
+        var pview = '';
+        switch (i) {
+            case 0:
+                pview = '/cabinet/Payments/GetPayWithCardPartial';
+                break;
+            case 1:
+                //pview = '/cabinet/YandexPayments/GetPaymentForm';
+                break;
+            default:
+                break;
+        };
+        if (pview != "")
+            $.ajax({
+                type: "POST",
+                url: pview,
+                error: function (xhr) {
+                },
+                success: function (response) {
+                    $("#content-panel").empty();
+                    $("#content-panel").html(response);
+                }
+            });
+    };
+
+    var validateKeydown = function (event, obj) {
+        if (event.keyCode == 13) {
+            if (isAmountValid(obj)) {
+                disableOrEnablePaymentButton();
+            }
+            else event.preventDefault();
+        }
+    };
+
+    var isAmountValid = function (obj) {
+        if (!(obj.value == '' || obj.value == undefined || isNaN(obj.value) || parseInt(obj.value) < 1 || 15000 < parseInt(obj.value))) {
+            $("#payment-amount-hint").removeAttr('data-hint');
+            return true;
+        }
+        else {
+            var amount = parseInt(obj.value);
+            if (isNaN(amount)) {
+                $("#payment-amount-hint").attr('data-hint', 'Поле для ввода суммы платежа может содержать только цифры');
+            }
+            else if (amount < 1 || 15000 < amount) {
+                $("#payment-amount-hint").attr('data-hint', 'Cумма платежа должна быть больше 1 руб. и не может превышать 15000 руб.');
+            } else {
+                $("#payment-amount-hint").attr('data-hint', 'Необходимо указать сумму платежа.');
+            }
+            $("#payment-amount-hint").addClass("hint--right");
+            $("#payment-amount-hint").addClass("hint--always");
+            return false;
+        }
+    };
+
+
+    function disableOrEnablePaymentButton() {
+        if ($('#agreement:checked').val()) {
+            $('#PaymentButton').attr('onclick', 'if($("#agreement").val()=="true" && isAmountValid(document.getElementById("payment-amount"))) $("#payment-form").submit();');
+            $('#PaymentButton').removeClass('disabled');
+            $('#PaymentButton').addClass('enabled');
+            $('#PaymentButton').removeAttr("disabled");
+            $('#payment-amount').removeAttr("disabled");
+
+        } else {
+            $('#PaymentButton').attr('onmousedown', '#');
+            $('#PaymentButton').addClass('disabled');
+            $('#PaymentButton').removeClass('enabled');
+            $('#PaymentButton').attr('disabled', true);
+            $('#payment-amount').attr('disabled', true);
+        }
+    }
+
+
+    var onPaymentResult = function (i) {
+        var pview = '';
+        switch (i) {
+            case 0:
+                pview = '/cabinet/Payments/GetSuccess';
+                break;
+            case 1:
+                pview = '/cabinet/Payments/GetFail';
+                break;
+            default: break;
+        };
+        if (pview != "")
+            $.ajax({
+                type: "POST",
+                url: pview,
+                error: function (xhr) {
+                },
+                success: function (response) {
+                    $("#content-panel").empty();
+                    $("#content-panel").html(response);
+                }
+            });
+    };
+
+    var onAccountSettingsMenuItemClick = function () {
+        $.ajax({
+            type: "POST",
+            url: '/cabinet/Settings/GetAccountSettingsPartial',
+            error: function () {
+            },
+            success: function (response) {
+                $("#content-panel").html(response);
+            }
+        });
+    };
+
+    var onPublicOfferMenuItemClick = function () {
+        $.ajax({
+            type: "POST",
+            url: '/cabinet/Home/GetPublicOfferPartial',
+            error: function () {
+            },
+            success: function (response) {
+                $("#content-panel").html(response);
+            }
+        });
+    };
+    
+    var onNotificationsSettingsMenuItemClick = function () {
+        $.ajax({
+            type: "POST",
+            url: '/cabinet/Settings/GetNotificationsSettingsPartial',
+            error: function () {
+            },
+            success: function (response) {
+                $("#content-panel").html(response);
+            }
+        });
+    };
+
+    var onCancelNotificationChanges = function () {
+        $.ajax({
+            type: "POST",
+            url: '/cabinet/Settings/GetNotificationsSettingsPartial',
+            error: function () {
+            },
+            success: function (response) {
+                $("#content-panel").html(response);
+            }
+        });
+    };
+
+    var onSaveNotificationChanges = function () {
+        $.ajax({
+            type: "POST",
+            data: $("#notifications-settings-form").serialize(),
+            url: '/cabinet/Settings/SaveNotificationsSettings',
+            error: function (xhr) {
+                $("#change-notifications-message")
+                    .removeClass('pa-success-message')
+                    .addClass('pa-error-message')
+                    .html("Ошибка при сохранении сервисов.");
+            },
+            success: function (response) {
+                if (!response.IsSuccess) {
+                    //var errors = response.Errors;
+                    $("#change-notifications-message")
+                        .removeClass('pa-success-message')
+                        .addClass('pa-error-message')
+                        .html("Ошибка при сохранении сервисов. " + ((response.Errors.EmailOrPhoneValidationMessage) ? response.Errors.EmailOrPhoneValidationMessage : ""));
+                }
+                else {
+                    $("#balance-email-value").removeAttr('data-hint');
+
+                    $("#change-notifications-message")
+                    .removeClass('pa-error-message')
+                    .addClass('pa-success-message')
+                        .html("Подписка на уведомления успешна изменена");
+
+                    setTimeout(function () {
+                        $("#change-notifications-message")
+                            .html("");
+                    }, 5000);
+                }
+            }
+        });
+    };
+
+    var setStyledInputs = function () {
+        $('select.styled, :checkbox.styled, :radio.styled').removeClass('styled').styler();
+    };
+
+    $(function () {
+
+        setStyledInputs();
+
+        var app = $.sammy(function () {
+
+            this.mapRoutes([
+            ['get', '#main', function () { OnMenuItemSelect(-1); }],
+            ['get', '#my-accounts', function () { OnMenuItemSelect(0); }],
+            ['get', '#dining-room', function () { OnMenuItemSelect(1); }],
+            ['get', '#access-events', function () { OnMenuItemSelect(2); }],
+            ['get', '#deposit', function () { OnMenuItemSelect(3); }],
+            ['get', '#deposit-card', function () { onPaymentMethodSelect(0); }],
+            ['get', '#deposit-yandex', function () { onPaymentMethodSelect(1); }],
+            ['get', '#account-settings', function () { onAccountSettingsMenuItemClick(); }],
+            ['get', '#notifications-settings', function () { onNotificationsSettingsMenuItemClick(); }],
+            ['get', '#public-offer', function () { onPublicOfferMenuItemClick(); }],
+            ['get', '#success', function () { onPaymentResult(0); }],
+            ['get', '#fail', function () { onPaymentResult(1); }],
+            ['get', '#help', function () { }]
+            ]);
+        });
+
+        app.run('#main');
+    });
+
+    var ajaxOk = false;
+
+    $(document).ajaxSuccess(function () {
+        setStyledInputs();
+    });
+
+    $(document).ajaxStop(function () {
+        ajaxOk = true;
+        $('.ajax-loader').hide();
+    });
+
+    $(document).ajaxStart(function () {
+        ajaxOk = false;
+
+        setTimeout(function () {
+            if (ajaxOk) return;
+            $('.ajax-loader').show();
+        }, 300);
+    });
+
+</script>
+
+<div>
+    <div>
+        <div class="left-panel">
+            <div class="personal-info">
+                 <div>
+    <div class="wrap">
+        <div class="username">Денисова Мария</div>
+        <div class="userdata">Договор №32103</div>
+    </div>
+    <div class="highlight">
+        <div class="balance">1&#160;015.37 <small>руб.</small></div>
+        <div class="cleaner"></div>
+    </div>
+</div>
+            </div>
+
+            <div>
+                <div>
+    <ul>
+        <li><a class="ajax-link" href="#my-accounts">Мои счета</a></li>
+        <li><a class="ajax-link" href="#dining-room">Столовая</a></li>
+        <li><a class="ajax-link" href="#access-events">Проходы в школу</a></li>
+        <li><a class="ajax-link" href="#deposit">Пополнение счета</a></li>
+    </ul>
+</div>
+
+            </div>
+            <div class="ajax-loader"></div>
+        </div>
+        <div id="content-panel">
+        </div>
+        <div class="clear-both"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="footer">
+    &copy; 2018 &quot;КенгуДетям.ру&quot;
+    <span style="color: gray">v. 0.0.0.0</span>
+    <div class="footer-info">
+        По интересующим вопросам Вы можете обратиться в call-центр по телефону 
+        <strong>8 800 550 44 45</strong>
+    </div>
+</div>
+    </div>
+</body>
+</html>
