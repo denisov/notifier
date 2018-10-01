@@ -12,6 +12,13 @@ import (
 	"gopkg.in/telegram-bot-api.v4"
 )
 
+// TODO в конфиг?
+var chatIDS = []int64{
+	208180909, // Мила
+	105302077, // Андрей
+}
+
+// Bot это телеграм бот
 type Bot struct {
 	BotAPI   *tgbotapi.BotAPI
 	SiteData kengu.DataSource
@@ -80,6 +87,17 @@ func (bot *Bot) Handler(w http.ResponseWriter, r *http.Request) {
 	_, err = bot.BotAPI.Send(msg)
 	if err != nil {
 		log.Printf("Failed to send message: %s", err)
+	}
+}
+
+// CronHandler это обработчик крон запросов на периодическую отправку данных о балансе
+func (bot *Bot) CronHandler(w http.ResponseWriter, r *http.Request) {
+	// TODO проверять какой-нибудь ключ/заголовок или авторизацию сделать
+	// сам ключ можно в секрете хранить напр
+	response := bot.getBalanceResponse()
+	for _, chatID := range chatIDS {
+		msg := tgbotapi.NewMessage(chatID, response)
+		bot.BotAPI.Send(msg)
 	}
 }
 

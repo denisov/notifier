@@ -22,6 +22,7 @@ func main() {
 	}
 
 	http.HandleFunc("/webhookKengu", bot.Handler)
+	http.HandleFunc("/cron", bot.CronHandler)
 
 	http.ListenAndServe("0.0.0.0:8443", nil)
 }
