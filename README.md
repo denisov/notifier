@@ -20,3 +20,5 @@ now rm kengu --safe --yes
 ```
 
 Задать крон-таск
+
+[![Build Status](https://travis-ci.com/denisov/kengu.svg?branch=master)](https://travis-ci.com/denisov/kengu)
