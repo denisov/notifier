@@ -3,7 +3,8 @@
     "env": {
       "TELEGRAM_BOT_TOKEN": "@telegram_bot_token",
       "KENGU_LOGIN": "@kengu_login",
-      "KENGU_PASSWORD": "@kengu_password"
+      "KENGU_PASSWORD": "@kengu_password",
+      "CRON_KEY": "@cron_key"
     }
 }
   
