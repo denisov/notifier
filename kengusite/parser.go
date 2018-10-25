@@ -1,6 +1,7 @@
 package kengusite
 
 import (
+	"io"
 	"net/http"
 	"net/http/cookiejar"
 	"net/url"
@@ -28,7 +29,7 @@ func NewParser(login, password string) Parser {
 const formURL = "http://billing.kengudetyam.ru/cabinet/Account/Login"
 
 // getContent возвращает контент адмики
-func (p Parser) getContent() (*http.Response, error) {
+func (p Parser) getContent() (io.ReadCloser, error) {
 	options := cookiejar.Options{
 		PublicSuffixList: publicsuffix.List,
 	}
@@ -44,21 +45,21 @@ func (p Parser) getContent() (*http.Response, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "не могу запостить форму")
 	}
-
-	return resp, nil
+	return resp.Body, nil
 }
 
 // GetData возвращает баланс
 func (p Parser) GetData() (string, error) {
-	pageResponse, err := p.getContent()
+	content, err := p.getContent()
 	if err != nil {
 		return "", errors.WithStack(err)
 	}
 
-	doc, err := goquery.NewDocumentFromResponse(pageResponse)
+	doc, err := goquery.NewDocumentFromReader(content)
 	if err != nil {
 		return "", errors.Wrap(err, "не могу создать документ для парсинга URL")
 	}
+	defer content.Close()
 
 	balanceSelection := doc.Find(".balance")
 	if balanceSelection.Length() == 0 {
@@ -69,5 +70,5 @@ func (p Parser) GetData() (string, error) {
 	// заменяем неразрывный пробел на нормальный
 	balance = strings.Replace(balance, "\u00a0", " ", -1)
 
-	return strings.Replace(balanceSelection.First().Text(), "\u00a0", " ", -1), nil
+	return balance, nil
 }
