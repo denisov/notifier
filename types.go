@@ -1,4 +1,4 @@
-package kengu
+package notifier
 
 // DataSource это источник данных
 type DataSource interface {

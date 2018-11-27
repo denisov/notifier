@@ -1,5 +1,5 @@
 {
-    "alias": "telegram-bot-andrey-kengu.now.sh",
+    "alias": "telegram-bot-andrey-notifier.now.sh",
     "env": {
       "TELEGRAM_BOT_TOKEN": "@telegram_bot_token",
       "KENGU_LOGIN": "@kengu_login",

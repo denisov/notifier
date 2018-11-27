@@ -2,6 +2,7 @@ package kengusite
 
 import (
 	"io/ioutil"
+	"net/http"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -9,7 +10,6 @@ import (
 )
 
 func TestGetData(t *testing.T) {
-
 	httpmock.Activate()
 	defer httpmock.DeactivateAndReset()
 
@@ -21,6 +21,25 @@ func TestGetData(t *testing.T) {
 	assert.NoError(t, err)
 
 	assert.Equal(t, "1 015.37 руб.", data)
+}
+
+func TestGetDataError(t *testing.T) {
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+
+	parser := NewParser("zz", "zz")
+	var err error
+
+	// Ответ: 302 редирект без Location
+	httpmock.RegisterResponder("POST", formURL,
+		httpmock.NewStringResponder(http.StatusFound, ""))
+	_, err = parser.GetData()
+	assert.EqualError(t, err, "не могу запостить форму: Post http://billing.kengudetyam.ru/cabinet/Account/Login: 302 response missing Location header")
+
+	httpmock.RegisterResponder("POST", formURL,
+		httpmock.NewStringResponder(http.StatusOK, "blabla"))
+	_, err = parser.GetData()
+	assert.EqualError(t, err, "не могу найти '.balance' в html коде")
 }
 
 // getTestResponse возвращает содержимое файла которое является ответом

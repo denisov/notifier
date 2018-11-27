@@ -14,12 +14,11 @@ now secret add cron_key xxxxx
 ### Удалить старые версии
 ```
 # удалить совсем всё
-now rm -y kengu
+now rm -y notifier
 
 # удалить то что без алиасов (не-боевые деплойменты)
-now rm kengu --safe --yes
+now rm notifier --safe --yes
 ```
 
-Задать крон-таск
 
-[![Build Status](https://travis-ci.com/denisov/kengu.svg?branch=master)](https://travis-ci.com/denisov/kengu)
+[![Build Status](https://travis-ci.com/denisov/notifier.svg?branch=master)](https://travis-ci.com/denisov/notifier)

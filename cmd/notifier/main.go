@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/denisov/kengu/kengusite"
-	"github.com/denisov/kengu/telegram"
+	"github.com/denisov/notifier/kengusite"
+	"github.com/denisov/notifier/telegram"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 
 	bot, err := telegram.NewBot(
 		os.Getenv("TELEGRAM_BOT_TOKEN"),
-		"https://telegram-bot-andrey-kengu.now.sh/webhookKengu",
+		"https://telegram-bot-andrey-notifier.now.sh/webhookKengu",
 		parser,
 	)
 	if err != nil {

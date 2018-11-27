@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/denisov/kengu"
+	"github.com/denisov/notifier"
 	"github.com/pkg/errors"
 	"gopkg.in/telegram-bot-api.v4"
 )
@@ -21,11 +21,11 @@ var chatIDS = []int64{
 // Bot это телеграм бот
 type Bot struct {
 	BotAPI   *tgbotapi.BotAPI
-	SiteData kengu.DataSource
+	SiteData notifier.DataSource
 }
 
 // NewBot создаёт нового бота
-func NewBot(token string, webhookURL string, source kengu.DataSource) (*Bot, error) {
+func NewBot(token string, webhookURL string, source notifier.DataSource) (*Bot, error) {
 	bot, err := tgbotapi.NewBotAPI(token)
 	if err != nil {
 		return nil, errors.Wrap(err, "Can't create bot")
