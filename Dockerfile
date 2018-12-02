@@ -14,5 +14,6 @@ RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o notifier github.com/denisov/notif
 FROM scratch
 COPY --from=base /go/src/github.com/denisov/notifier/notifier /go-telegram-bot-notifier
 COPY --from=base /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+COPY --from=base /usr/local/go/lib/time/zoneinfo.zip /usr/local/go/lib/time/zoneinfo.zip
 EXPOSE 8443
 CMD ["/go-telegram-bot-notifier"]

@@ -20,12 +20,13 @@ var chatIDS = []int64{
 
 // Bot это телеграм бот
 type Bot struct {
-	BotAPI   *tgbotapi.BotAPI
-	SiteData notifier.DataSource
+	BotAPI        *tgbotapi.BotAPI
+	BalanceSource notifier.DataSource
+	DiarySource   notifier.DataSource
 }
 
 // NewBot создаёт нового бота
-func NewBot(token string, webhookURL string, source notifier.DataSource) (*Bot, error) {
+func NewBot(token string, webhookURL string, balanceSource, diarySource notifier.DataSource) (*Bot, error) {
 	bot, err := tgbotapi.NewBotAPI(token)
 	if err != nil {
 		return nil, errors.Wrap(err, "Can't create bot")
@@ -49,8 +50,9 @@ func NewBot(token string, webhookURL string, source notifier.DataSource) (*Bot, 
 	}
 
 	return &Bot{
-		BotAPI:   bot,
-		SiteData: source,
+		BotAPI:        bot,
+		BalanceSource: balanceSource,
+		DiarySource:   diarySource,
 	}, nil
 }
 
@@ -102,7 +104,7 @@ func (bot *Bot) CronHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func (bot *Bot) getBalanceResponse() string {
-	data, err := bot.SiteData.GetData()
+	data, err := bot.BalanceSource.GetData()
 
 	if err != nil {
 		return fmt.Sprintf("ERROR: %+v", err)
@@ -112,5 +114,11 @@ func (bot *Bot) getBalanceResponse() string {
 }
 
 func (bot *Bot) getDnevnikResponse() string {
-	return "Оценки..."
+	message, err := bot.DiarySource.GetData()
+	if err != nil {
+		fmt.Printf("ERROR: %+v", err)
+		return fmt.Sprintf("ERROR: %+v", err)
+	}
+
+	return message
 }

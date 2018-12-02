@@ -7,16 +7,19 @@ import (
 	"os"
 
 	"github.com/denisov/notifier/kengusite"
+	"github.com/denisov/notifier/shkolanso"
 	"github.com/denisov/notifier/telegram"
 )
 
 func main() {
-	parser := kengusite.NewParser(os.Getenv("KENGU_LOGIN"), os.Getenv("KENGU_PASSWORD"))
+	kenguParser := kengusite.NewParser(os.Getenv("KENGU_LOGIN"), os.Getenv("KENGU_PASSWORD"))
+	shkolaParser := shkolanso.NewParser(os.Getenv("SHKOLANSO_LOGIN"), os.Getenv("SHKOLANSO_PASSWORD"))
 
 	bot, err := telegram.NewBot(
 		os.Getenv("TELEGRAM_BOT_TOKEN"),
 		"https://telegram-bot-andrey-notifier.now.sh/webhookKengu",
-		parser,
+		kenguParser,
+		shkolaParser,
 	)
 	if err != nil {
 		log.Fatalf("%+v", err)

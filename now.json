@@ -4,6 +4,8 @@
       "TELEGRAM_BOT_TOKEN": "@telegram_bot_token",
       "KENGU_LOGIN": "@kengu_login",
       "KENGU_PASSWORD": "@kengu_password",
+      "SHKOLANSO_LOGIN": "@shkolanso_login",
+      "SHKOLANSO_PASSWORD": "@shkolanso_password",
       "CRON_KEY": "@cron_key"
     }
 }
