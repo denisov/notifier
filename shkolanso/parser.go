@@ -50,8 +50,13 @@ func (p Parser) GetData() (string, error) {
 		return "", errors.Wrap(err, "Не могу распарсить ответ")
 	}
 
+	loc, err := time.LoadLocation("Asia/Novosibirsk")
+	if err != nil {
+		return "", errors.Wrap(err, "Не могу найти location")
+	}
+
 	// на основе структуры cформировать ответ
-	textMessage, err := composeTextMessage(sm, time.Now())
+	textMessage, err := composeTextMessage(sm, time.Now().In(loc))
 	if err != nil {
 		return "", errors.Wrap(err, "Не могу составить ответ")
 	}
@@ -73,11 +78,16 @@ func parseJSONResponse(response []byte) (summaryMarks, error) {
 // composeTextMessage составляет текстовое сообщение из данных структуры summaryMarks
 func composeTextMessage(sm summaryMarks, dt time.Time) (string, error) {
 	var message string
+	dtRounded := time.Date(dt.Year(), dt.Month(), dt.Day(), 0, 0, 0, 0, dt.Location())
 
 	for _, disciplineMarkItem := range sm.DisciplineMarks {
 		discipline := disciplineMarkItem.Discipline
 		for _, markItem := range disciplineMarkItem.Marks {
-			if markItem.Date.Truncate(24 * time.Hour).Equal(dt.Truncate(24 * time.Hour)) {
+			// нельзя использовать Truncate для выделения даты, т.к. он приводит время к UTC
+
+			markDateRounded := time.Date(markItem.Date.Year(), markItem.Date.Month(), markItem.Date.Day(), 0, 0, 0, 0, markItem.Date.Location())
+
+			if markDateRounded.Equal(dtRounded) {
 				if len(message) != 0 {
 					message = message + "\n"
 				}
@@ -140,7 +150,11 @@ func getSummaryMarksRaw(login, password string) (io.ReadCloser, error) {
 		return nil, errors.Wrap(err, "не могу создать запрос на GetSummaryMarks")
 	}
 	q := summaryMarksRequest.URL.Query()
-	q.Add("date", time.Now().Format("2006-01-02"))
+	loc, err := time.LoadLocation("Asia/Novosibirsk")
+	if err != nil {
+		return nil, errors.Wrap(err, "Не могу найти location")
+	}
+	q.Add("date", time.Now().In(loc).Format("2006-01-02"))
 	summaryMarksRequest.URL.RawQuery = q.Encode()
 	marksResp, err := client.Do(summaryMarksRequest)
 	if err != nil {
@@ -149,5 +163,3 @@ func getSummaryMarksRaw(login, password string) (io.ReadCloser, error) {
 
 	return marksResp.Body, nil
 }
-
-//func ()

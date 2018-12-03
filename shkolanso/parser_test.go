@@ -55,7 +55,7 @@ func TestComposeTextMessage(t *testing.T) {
 			},
 		},
 	}
-	message, err := composeTextMessage(sm, time.Date(2018, 11, 14, 0, 0, 0, 0, loc))
+	message, err := composeTextMessage(sm, time.Date(2018, 11, 14, 15, 10, 11, 0, loc))
 	require.NoError(t, err)
 	require.Equal(t, "Математика: 5\nЛитературное чтение: 5\nФизическая культура: 5", message)
 
