@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -17,7 +18,7 @@ func main() {
 
 	bot, err := telegram.NewBot(
 		os.Getenv("TELEGRAM_BOT_TOKEN"),
-		"https://telegram-bot-andrey-notifier.now.sh/webhookKengu",
+		fmt.Sprintf("https://%s/webhook", os.Getenv("HOST")),
 		kenguParser,
 		shkolaParser,
 	)
@@ -25,10 +26,10 @@ func main() {
 		log.Fatalf("%+v", err)
 	}
 
-	http.HandleFunc("/webhookKengu", bot.Handler)
+	http.HandleFunc("/webhook", bot.Handler)
 	http.HandleFunc("/cron", authMiddleware(bot.CronHandler, os.Getenv("CRON_KEY")))
 
-	http.ListenAndServe("0.0.0.0:8443", nil)
+	http.ListenAndServe("0.0.0.0:"+os.Getenv("PORT"), nil)
 }
 
 func authMiddleware(next http.HandlerFunc, authKey string) http.HandlerFunc {

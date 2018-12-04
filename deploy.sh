@@ -1,5 +1,5 @@
 set -x
 
 go test ./... && \
-    now --public && \
-    now alias
+    heroku container:push web --app=notify-bot-andr && \
+    heroku container:release web --app=notify-bot-andr
