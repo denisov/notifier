@@ -11,7 +11,7 @@ RUN apk --update add ca-certificates
 # -ldflags "-s -w" to strip the debugging information
 RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o notifier github.com/denisov/notifier/cmd/notifier
 
-FROM alpine:latest
+FROM alpine:3.8
 COPY --from=base /go/src/github.com/denisov/notifier/notifier /go-telegram-bot-notifier
 COPY --from=base /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=base /usr/local/go/lib/time/zoneinfo.zip /usr/local/go/lib/time/zoneinfo.zip

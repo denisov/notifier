@@ -1,6 +1,5 @@
 ## Задать переменные окружения
 
-
 ```
 HOST
 TELEGRAM_BOT_TOKEN
@@ -12,9 +11,13 @@ CRON_KEY
 ```
 
 ## Deploy
-    ./deploy.sh
+```
+./deploy.sh
+```
 
 ## Logs
-    heroku logs -t --app=notify-bot-andr
+```
+heroku logs -t --app=notify-bot-andr
+```
 
 [![Build Status](https://travis-ci.com/denisov/notifier.svg?branch=master)](https://travis-ci.com/denisov/notifier)
