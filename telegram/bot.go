@@ -94,8 +94,6 @@ func (bot *Bot) Handler(w http.ResponseWriter, r *http.Request) {
 
 // CronHandler это обработчик крон запросов на периодическую отправку данных о балансе
 func (bot *Bot) CronHandler(w http.ResponseWriter, r *http.Request) {
-	// TODO проверять какой-нибудь ключ/заголовок или авторизацию сделать
-	// сам ключ можно в секрете хранить напр
 	response := bot.getBalanceResponse()
 	for _, chatID := range chatIDS {
 		msg := tgbotapi.NewMessage(chatID, response)
