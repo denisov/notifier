@@ -14,7 +14,7 @@ RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o notifier github.com/denisov/notif
 FROM alpine:3.8
 # curl нужен для вызова эндпоинта-крона. Крон есть не во всех бесплатных хостингах, поэтому крон сделал в виде эндпоинта HTTP сервера
 RUN apk add --update \
-    curl \
+    wget \
     && rm -rf /var/cache/apk/*
 COPY --from=base /go/src/github.com/denisov/notifier/notifier /go-telegram-bot-notifier
 COPY --from=base /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
