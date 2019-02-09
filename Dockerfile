@@ -12,7 +12,7 @@ RUN apk --update add ca-certificates
 RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o notifier github.com/denisov/notifier/cmd/notifier
 
 FROM alpine:3.8
-# curl нужен для вызова эндпоинта-крона. Крон есть не во всех бесплатных хостингах, поэтому крон сделал в виде эндпоинта HTTP сервера
+# wget нужен для вызова эндпоинта-крона. Крон есть не во всех бесплатных хостингах, поэтому крон сделал в виде эндпоинта HTTP сервера
 RUN apk add --update \
     wget \
     && rm -rf /var/cache/apk/*

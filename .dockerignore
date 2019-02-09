@@ -6,3 +6,4 @@ notifier-ws.code-workspace
 README.md
 TODO.md
 Dockerfile.build-context
+set-env.sh

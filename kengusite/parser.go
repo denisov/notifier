@@ -26,7 +26,7 @@ func NewParser(login, password string) Parser {
 	}
 }
 
-const formURL = "http://billing.kengudetyam.ru/cabinet/Account/Login"
+const formURL = "https://billing.kengudetyam.ru/cabinet/Account/Login"
 
 // getContent возвращает контент адмики
 func (p Parser) getContent() (io.ReadCloser, error) {
