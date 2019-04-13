@@ -46,7 +46,8 @@ func NewBot(token string, webhookURL string, balanceSource, diarySource notifier
 		return nil, errors.Wrap(err, "can't get webhook info")
 	}
 	if info.LastErrorDate != 0 {
-		return nil, errors.Wrap(err, "Telegram callback failed")
+		// Возможно произошла ошибка... Не понятно критично или нет, поэтому продолжаем
+		log.Printf("(!) LastErrorDate != 0. WebhookInfo:%v", info)
 	}
 
 	return &Bot{
