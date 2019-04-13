@@ -10,6 +10,12 @@ SHKOLANSO_PASSWORD
 CRON_KEY
 ```
 
+## Dev
+
+```
+dep ensure
+```
+
 ## Deploy
 ```
 ./deploy.sh

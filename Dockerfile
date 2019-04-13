@@ -4,7 +4,8 @@ RUN apk --no-cache add git
 WORKDIR /go/src/github.com/denisov/notifier
 COPY . .
 
-RUN go get -v ./...
+RUN go get -u github.com/golang/dep/cmd/dep
+RUN dep ensure
 
 RUN apk --update add ca-certificates
 # CGO_ENABLED: don’t need to worry about library dependencies
