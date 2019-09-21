@@ -1,4 +1,4 @@
-FROM golang:1.12-alpine as base
+FROM golang:1.13-alpine as base
 
 RUN apk --no-cache add git
 WORKDIR /go/src/github.com/denisov/notifier
