@@ -1,18 +1,15 @@
-FROM golang:1.13-alpine as base
+FROM golang:1.17-alpine as base
 
 RUN apk --no-cache add git
 WORKDIR /go/src/github.com/denisov/notifier
 COPY . .
-
-RUN go get -u github.com/golang/dep/cmd/dep
-RUN dep ensure
 
 RUN apk --update add ca-certificates
 # CGO_ENABLED: don’t need to worry about library dependencies
 # -ldflags "-s -w" to strip the debugging information
 RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o notifier github.com/denisov/notifier/cmd/notifier
 
-FROM alpine:3.8
+FROM alpine:3.15
 # wget нужен для вызова эндпоинта-крона. Крон есть не во всех бесплатных хостингах, поэтому крон сделал в виде эндпоинта HTTP сервера
 RUN apk add --update \
     wget \

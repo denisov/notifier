@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"testing"
 
+	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/jarcoal/httpmock.v1"
 )
 
 func TestGetData(t *testing.T) {
@@ -34,7 +34,7 @@ func TestGetDataError(t *testing.T) {
 	httpmock.RegisterResponder("POST", formURL,
 		httpmock.NewStringResponder(http.StatusFound, ""))
 	_, err = parser.GetData()
-	assert.EqualError(t, err, "не могу запостить форму: Post https://billing.kengudetyam.ru/cabinet/Account/Login: 302 response missing Location header")
+	assert.EqualError(t, err, "не могу запостить форму: Post \"https://billing.kengudetyam.ru/cabinet/Account/Login\": 302 response missing Location header")
 
 	httpmock.RegisterResponder("POST", formURL,
 		httpmock.NewStringResponder(http.StatusOK, "blabla"))

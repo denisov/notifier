@@ -9,13 +9,14 @@ import (
 
 	"github.com/denisov/notifier"
 	"github.com/pkg/errors"
-	"gopkg.in/telegram-bot-api.v4"
+	tgbotapi "gopkg.in/telegram-bot-api.v4"
 )
 
 // TODO в конфиг?
 var chatIDS = []int64{
-	208180909, // Мила
-	105302077, // Андрей
+	208180909,  // Мила
+	105302077,  // Андрей
+	5007755419, // Маша
 }
 
 // Bot это телеграм бот
