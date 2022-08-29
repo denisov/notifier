@@ -29,7 +29,10 @@ func main() {
 	http.HandleFunc("/webhook", bot.Handler)
 	http.HandleFunc("/cron", authMiddleware(bot.CronHandler, os.Getenv("CRON_KEY")))
 
-	http.ListenAndServe("0.0.0.0:"+os.Getenv("PORT"), nil)
+	err = http.ListenAndServeTLS("0.0.0.0:"+os.Getenv("PORT"), "cert.pem", "key.pem", nil)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func authMiddleware(next http.HandlerFunc, authKey string) http.HandlerFunc {

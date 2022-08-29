@@ -1,0 +1,10 @@
+[Unit]
+Description=Отправка баланса на обеденной карте
+Wants=notifier.timer
+
+[Service]
+Type=oneshot
+ExecStart=curl --insecure https://mydomain.ru:8443/cron?key=xxxx
+
+[Install]
+WantedBy=multi-user.target

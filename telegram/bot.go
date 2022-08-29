@@ -8,8 +8,8 @@ import (
 	"net/http"
 
 	"github.com/denisov/notifier"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/pkg/errors"
-	tgbotapi "gopkg.in/telegram-bot-api.v4"
 )
 
 // TODO в конфиг?
@@ -38,7 +38,11 @@ func NewBot(token string, webhookURL string, balanceSource, diarySource notifier
 	// todo в конфиг
 	bot.Debug = true
 
-	_, err = bot.SetWebhook(tgbotapi.NewWebhook(webhookURL))
+	wh, err := tgbotapi.NewWebhookWithCert(webhookURL, tgbotapi.FilePath("cert.pem"))
+	if err != nil {
+		return nil, errors.Wrap(err, "can't set webhook")
+	}
+	_, err = bot.Request(wh)
 	if err != nil {
 		return nil, errors.Wrap(err, "can't set webhook")
 	}

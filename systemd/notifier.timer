@@ -1,0 +1,10 @@
+[Unit]
+Description=Таймер для отправки баланса на обеденной карте
+Requires=notifier.service
+
+[Timer]
+Unit=notifier.service
+OnCalendar=*-*-* 04:00:00
+
+[Install]
+WantedBy=timers.target
