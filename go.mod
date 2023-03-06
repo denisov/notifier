@@ -8,7 +8,7 @@ require (
 	github.com/jarcoal/httpmock v1.0.8
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.7.0
-	golang.org/x/net v0.0.0-20211216030914-fe4d6282115f
+	golang.org/x/net v0.7.0
 )
 
 require (
