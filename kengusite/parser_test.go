@@ -1,6 +1,7 @@
 package kengusite
 
 import (
+	"errors"
 	"io/ioutil"
 	"net/http"
 	"testing"
@@ -31,10 +32,12 @@ func TestGetDataError(t *testing.T) {
 	var err error
 
 	// Ответ: 302 редирект без Location
-	httpmock.RegisterResponder("POST", formURL,
-		httpmock.NewStringResponder(http.StatusFound, ""))
+	httpmock.RegisterResponder(
+		"POST",
+		formURL,
+		httpmock.NewErrorResponder(errors.New("internal error")))
 	_, err = parser.GetData()
-	assert.EqualError(t, err, "не могу запостить форму: Post \"https://billing.kengudetyam.ru/cabinet/Account/Login\": 302 response missing Location header")
+	assert.EqualError(t, err, "не могу запостить форму: Post \"https://billing.kengudetyam.ru/cabinet/Account/Login\": internal error")
 
 	httpmock.RegisterResponder("POST", formURL,
 		httpmock.NewStringResponder(http.StatusOK, "blabla"))

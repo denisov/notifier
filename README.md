@@ -2,6 +2,8 @@
 
 
 ## Github registry
+Токен создаётся тут: https://github.com/settings/tokens
+
 Залогиниться в github registry
 ```
 echo $CR_PAT | docker login ghcr.io -u denisov --password-stdin
