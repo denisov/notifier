@@ -114,7 +114,7 @@ func (bot *Bot) getBalanceResponse() string {
 		return fmt.Sprintf("ERROR: %+v", err)
 	}
 
-	return "Баланс на обеденной карте:" + data
+	return "Баланс на обеденной карте: " + data
 }
 
 func (bot *Bot) getDnevnikResponse() string {
