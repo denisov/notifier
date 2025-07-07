@@ -39,6 +39,7 @@ docker push ghcr.io/denisov/notifier
 ```bash
 openssl req -newkey rsa:2048 -sha256 -nodes -keyout key.pem -x509 -days 3650 -out cert.pem -subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=mydomain.ru"
 ```
+Если используется self-signed сертификат, то его нужно передать вместе с урлом вебхука. А если нет - то не надо передавать. Иначе будет ошибка "bad record MAC". см `NewWebhook`/`NewWebhookWithCert` в `telegram/bot.go`
 
 загрузить/обновить image
 ```

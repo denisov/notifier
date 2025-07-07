@@ -38,7 +38,9 @@ func NewBot(token string, webhookURL string, balanceSource, diarySource notifier
 	// todo в конфиг
 	bot.Debug = true
 
-	wh, err := tgbotapi.NewWebhookWithCert(webhookURL, tgbotapi.FilePath("cert.pem"))
+	// Для self-signed сертификата нужно передать его вместе с url вебхука
+	// wh, err := tgbotapi.NewWebhookWithCert(webhookURL, tgbotapi.FilePath("cert.pem"))
+	wh, err := tgbotapi.NewWebhook(webhookURL)
 	if err != nil {
 		return nil, errors.Wrap(err, "can't set webhook")
 	}
